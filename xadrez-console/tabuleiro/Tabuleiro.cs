@@ -17,7 +17,6 @@
         public Peca peca(int linha, int coluna)
         {
             return pecas[linha, coluna];
-
         }
 
         public Peca peca(Posicao pos)
@@ -33,9 +32,9 @@
 
         public void colocarPeca(Peca p, Posicao pos)
         {
-            if(existePeca(pos))
+            if (existePeca(pos))
             {
-                throw new TabuleiroException("Ja exite uma peca nessa posicao!");
+                throw new TabuleiroException("Já existe uma peça nessa posição!");
             }
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
@@ -43,7 +42,7 @@
 
         public Peca retirarPeca(Posicao pos)
         {
-            if ( peca(pos) == null)
+            if (peca(pos) == null)
             {
                 return null;
             }
@@ -53,10 +52,9 @@
             return aux;
         }
 
-
         public bool posicaoValida(Posicao pos)
         {
-            if(pos.linha<0 || pos.linha>=linhas || pos.coluna<0 || pos.coluna >= colunas)
+            if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna >= colunas)
             {
                 return false;
             }
@@ -65,11 +63,10 @@
 
         public void validarPosicao(Posicao pos)
         {
-            if(!posicaoValida(pos))
+            if (!posicaoValida(pos))
             {
-                throw new TabuleiroException("Posicao Invalida!");
+                throw new TabuleiroException("Posição inválida!");
             }
         }
-
     }
 }
