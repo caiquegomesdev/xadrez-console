@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using tabuleiro;
 using xadrez;
-using System.Collections.Generic;
+
 
 
 namespace xadrez_console
@@ -42,7 +43,8 @@ namespace xadrez_console
             Console.Write("]");
         }
 
-        public static void imprimirTabulerio(Tabuleiro tab)
+
+        public static void imprimirTabuleiro(Tabuleiro tab)
         {
             for (int i = 0; i<tab.linhas; i++)
             {
