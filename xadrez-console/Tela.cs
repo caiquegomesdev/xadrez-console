@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using tabuleiro;
 using xadrez;
 
-
-
 namespace xadrez_console
 {
     class Tela
     {
+
         public static void imprimirPartida(PartidaDeXadrez partida)
         {
             imprimirTabuleiro(partida.tab);
@@ -16,10 +15,18 @@ namespace xadrez_console
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.turno);
-            Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
-            if (partida.xeque)
+            if (!partida.terminada)
             {
-                Console.WriteLine("XEQUE!");
+                Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor: " + partida.jogadorAtual);
             }
         }
 
@@ -47,16 +54,15 @@ namespace xadrez_console
             Console.Write("]");
         }
 
-
         public static void imprimirTabuleiro(Tabuleiro tab)
         {
-            for (int i = 0; i<tab.linhas; i++)
+
+            for (int i = 0; i < tab.linhas; i++)
             {
                 Console.Write(8 - i + " ");
-                for (int j = 0; j<tab.colunas; j++)
+                for (int j = 0; j < tab.colunas; j++)
                 {
-                        imprimirPeca(tab.peca(i,j));
-                        Console.Write(" ");             
+                    imprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
             }
@@ -122,6 +128,6 @@ namespace xadrez_console
                 Console.Write(" ");
             }
         }
-   
+
     }
 }
